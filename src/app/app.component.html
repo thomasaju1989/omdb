@@ -1,0 +1,31 @@
+<div>
+  <div class="filter">
+    <input type="search" [(ngModel)]="search" placeholder="Search Text... " />
+    <button mat-raised-button color="primary" (click)="searchOmdb()">Search</button>
+  </div>
+
+  <div class="content">
+    <mat-spinner *ngIf="spinner"></mat-spinner>
+    <div *ngIf="!spinner && movie">
+      <mat-card class="example-card">
+        <img
+          mat-card-image
+          src="{{movie.Poster}}"
+          alt="{{movie.Title}}"
+        />
+        <mat-card-content>
+          <p>
+            Title {{movie.Title}}
+          </p>
+          <p>
+            year {{movie.Year}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button>LIKE</button>
+          <button mat-raised-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
